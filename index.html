@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#193c3a">
+<title>Programa Voz e Comunicação Efetiva · Milena Cosmo · Neoenergia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Jost:wght@400;500;600;700&family=Karla:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   BASE — mobile primeiro
+   ============================================================ */
+:root{
+  --dark:#193c3a; --deep:#0f2927; --tiffany:#00d0ca; --cyan:#4bfff6;
+  --mist:#e1f4f2; --ink:#1c2b2a; --paper:#fbfdfd; --cinza:#7d8f8d;
+  --gut:clamp(22px,5.5vw,88px);
+  --maxw:1420px;
+}
+*{margin:0;padding:0;box-sizing:border-box;border-radius:0 !important;}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
+body{font-family:'Karla',system-ui,Arial,sans-serif;color:var(--ink);background:var(--paper);
+     line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+img{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+.serif{font-family:'Fraunces',Georgia,serif;}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut);}
+section{position:relative;padding:clamp(66px,14vw,150px) 0;}
+.esc{background:var(--dark);color:var(--mist);}
+.deep{background:var(--deep);color:var(--mist);}
+
+.olho{font-family:'Jost',sans-serif;font-weight:600;font-size:clamp(11px,2.8vw,12.5px);
+      letter-spacing:.3em;text-transform:uppercase;color:var(--tiffany);margin-bottom:clamp(18px,4vw,28px);
+      display:flex;align-items:center;gap:14px;}
+.olho::after{content:"";flex:1;height:1px;background:currentColor;opacity:.35;max-width:120px;}
+.esc .olho,.deep .olho{color:var(--cyan);}
+
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:400;line-height:1.04;letter-spacing:-.015em;}
+h2{font-size:clamp(33px,8.2vw,66px);color:var(--dark);margin-bottom:clamp(20px,4vw,32px);}
+.esc h2,.deep h2{color:#fff;}
+h2 em,h1 em{font-style:italic;font-weight:300;color:var(--tiffany);}
+.esc h2 em,.deep h2 em,.esc h1 em{color:var(--cyan);}
+h3{font-size:clamp(22px,5.2vw,30px);color:var(--dark);line-height:1.14;}
+.esc h3,.deep h3{color:#fff;}
+p{font-size:clamp(17px,4.4vw,19.5px);line-height:1.65;}
+@media(min-width:640px){p{font-size:clamp(17.5px,1.6vw,19.5px);}}
+.lead{font-size:clamp(20px,5.4vw,27px);line-height:1.5;font-weight:300;}
+@media(min-width:640px){.lead{font-size:clamp(21px,2.2vw,28px);}}
+.larg{max-width:78ch;}
+
+/* so texto corrido e justificado; topico/bullet/listagem fica alinhado a esquerda */
+p,.apoio,.pessoa .bio{text-align:justify;text-justify:inter-word;
+   -webkit-hyphens:auto;-ms-hyphens:auto;hyphens:auto;}
+
+/* ---------- barra de progresso + topo ---------- */
+.prog{position:fixed;top:0;left:0;height:3px;background:var(--tiffany);width:0;z-index:300;transition:width .1s linear;}
+.topo{position:fixed;top:0;left:0;right:0;z-index:200;padding:13px 0;
+      background:rgba(15,41,39,0);transform:translateY(-100%);transition:transform .45s ease,background .45s ease;}
+.topo.on{transform:none;background:rgba(15,41,39,.95);backdrop-filter:blur(10px);}
+.topo .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.topo img{height:clamp(32px,7.4vw,46px);width:auto;}
+.topo .ident{font-family:'Jost',sans-serif;font-size:clamp(10px,2.4vw,12px);letter-spacing:.18em;
+             text-transform:uppercase;font-weight:600;color:var(--mist);text-align:right;line-height:1.6;}
+.topo .ident span{display:block;color:var(--cyan);}
+
+/* ---------- hero ---------- */
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;
+      position:relative;overflow:hidden;background:var(--dark);color:#fff;
+      padding:clamp(96px,17vw,136px) 0 clamp(40px,10vw,70px);}
+.hero .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.3;filter:saturate(.6);
+          animation:zoom 18s ease-out forwards;}
+@keyframes zoom{from{transform:scale(1.1)}to{transform:scale(1)}}
+.hero .veu{position:absolute;inset:0;background:
+   linear-gradient(180deg,rgba(15,41,39,.82) 0%,rgba(15,41,39,.55) 35%,rgba(15,41,39,.95) 100%);}
+.hero .wrap{position:relative;z-index:2;width:100%;}
+.assinatura{display:flex;align-items:center;margin-bottom:auto;}
+.assinatura img{height:clamp(38px,8.6vw,54px);width:auto;}
+.marca{font-family:'Jost',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.06em;
+       color:var(--tiffany);font-size:clamp(29px,8vw,56px);line-height:1;margin-bottom:clamp(16px,3.6vw,24px);}
+.hero h1{font-size:clamp(33px,8.2vw,72px);color:#fff;}
+.hero .sub{margin-top:clamp(18px,4.4vw,26px);color:var(--mist);max-width:50ch;}
+.hero .para{margin-top:clamp(20px,4.6vw,28px);font-family:'Fraunces',Georgia,serif;font-weight:400;
+            font-size:clamp(21px,5.4vw,30px);color:#fff;line-height:1.2;}
+.hero .meta{margin-top:clamp(30px,7vw,50px);padding-top:20px;border-top:1px solid rgba(225,244,242,.3);
+            display:flex;flex-wrap:wrap;gap:8px 28px;font-family:'Jost',sans-serif;font-weight:500;
+            font-size:clamp(11px,2.8vw,13px);letter-spacing:.2em;text-transform:uppercase;color:var(--mist);}
+.rolar{margin-top:clamp(24px,5.4vw,36px);display:inline-flex;align-items:center;gap:12px;
+       font-family:'Jost',sans-serif;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);}
+.rolar i{width:1px;height:34px;background:var(--cyan);display:block;animation:desce 1.8s ease-in-out infinite;transform-origin:top;}
+@keyframes desce{0%,100%{transform:scaleY(.4)}50%{transform:scaleY(1)}}
+
+/* ---------- texto com foto ---------- */
+.dupla{display:flex;flex-direction:column;gap:clamp(30px,6vw,56px);}
+@media(min-width:960px){.dupla{display:grid;grid-template-columns:1.12fr .88fr;align-items:center;gap:clamp(40px,5vw,72px);}}
+.retrato{width:100%;aspect-ratio:4/5;object-fit:cover;}
+@media(min-width:960px){.retrato{aspect-ratio:3/4;}}
+.apoio{font-size:clamp(17px,4.4vw,19.5px);line-height:1.65;margin-top:18px;}
+.apoio:first-child{margin-top:0;}
+.destaque{border-left:3px solid var(--tiffany);padding-left:20px;color:var(--dark);text-align:left;}
+.esc .destaque,.deep .destaque{border-left-color:var(--cyan);color:var(--mist);}
+
+/* ---------- circulos sobrepostos do contexto ---------- */
+.circulos{position:relative;--d:clamp(168px,33vw,272px);
+          width:calc(var(--d)*1.68);height:calc(var(--d)*1.48);
+          margin:clamp(34px,6.5vw,52px) auto 0;}
+.circulos figure{position:absolute;width:var(--d);height:var(--d);overflow:hidden;
+                 border-radius:50% !important;border:6px solid var(--paper);}
+.circulos .c1{left:0;top:0;}
+.circulos .c2{left:calc(var(--d)*.68);top:calc(var(--d)*.48);z-index:2;}
+.circulos img{width:100%;height:100%;object-fit:cover;display:block;}
+
+/* ---------- quem conduz, com a dupla na bolinha ---------- */
+.conduz{display:flex;align-items:center;gap:14px;margin-top:14px;
+        padding-top:14px;border-top:1px solid rgba(25,60,58,.14);}
+.card.inv .conduz{border-top-color:rgba(225,244,242,.26);}
+.conduz img{width:76px;height:76px;border-radius:50% !important;object-fit:cover;flex:none;}
+.conduz .q{font-family:'Jost',sans-serif;font-size:10.5px;letter-spacing:.17em;
+           text-transform:uppercase;color:var(--cinza);display:block;margin-bottom:3px;}
+.card.inv .conduz .q{color:rgba(225,244,242,.68);}
+.conduz .n{font-size:15.5px;line-height:1.3;}
+
+/* ---------- lista numerada ---------- */
+.temas{margin-top:clamp(28px,5.4vw,44px);}
+.tema{display:grid;grid-template-columns:auto 1fr;gap:clamp(14px,3.4vw,30px);align-items:baseline;
+      padding:clamp(16px,3.6vw,24px) 0;border-top:1px solid rgba(25,60,58,.16);}
+.tema:last-child{border-bottom:1px solid rgba(25,60,58,.16);}
+.tema .n{font-family:'Fraunces',Georgia,serif;font-size:clamp(16px,3.8vw,21px);color:var(--tiffany);min-width:2.2ch;}
+.tema .t{font-size:clamp(17px,4.4vw,23px);line-height:1.32;color:var(--dark);}
+@media(min-width:900px){
+  .temas{display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(40px,5vw,80px);}
+  .tema:nth-child(6){border-bottom:1px solid rgba(25,60,58,.16);}
+}
+
+/* ---------- cartões ---------- */
+.cards{display:flex;flex-direction:column;gap:clamp(18px,3.4vw,24px);margin-top:clamp(28px,5.4vw,44px);}
+@media(min-width:860px){.cards.duo{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;}}
+@media(min-width:860px){.cards.trio{display:grid;grid-template-columns:repeat(3,1fr);align-items:stretch;}}
+.card{background:#fff;color:var(--ink);border-top:3px solid var(--tiffany);
+      padding:clamp(24px,5vw,34px);display:flex;flex-direction:column;
+      box-shadow:0 1px 0 rgba(25,60,58,.06);transition:transform .4s ease,box-shadow .4s ease;}
+.card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(25,60,58,.1);}
+.card.inv{background:var(--dark);color:var(--mist);border-top-color:var(--cyan);}
+.card .num{font-family:'Jost',sans-serif;font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;
+           font-weight:600;color:var(--tiffany);margin-bottom:12px;}
+.card.inv .num{color:var(--cyan);}
+.card h3{margin-bottom:10px;}
+.card.inv h3{color:#fff;}
+.card .ficha{font-family:'Jost',sans-serif;font-size:clamp(12.5px,3.2vw,14px);letter-spacing:.09em;
+             text-transform:uppercase;font-weight:600;color:var(--cinza);margin-bottom:14px;line-height:1.6;}
+.card.inv .ficha{color:var(--cyan);opacity:.9;}
+.card p{font-size:clamp(16px,4.1vw,17.5px);line-height:1.6;}
+.itens{list-style:none;margin-top:16px;}
+.itens.sep{padding-top:16px;border-top:1px solid rgba(25,60,58,.16);}
+.card.inv .itens.sep{border-top-color:rgba(225,244,242,.28);}
+.itens li{position:relative;padding-left:22px;margin-bottom:10px;font-size:clamp(15.5px,4vw,17px);line-height:1.5;}
+.itens li:last-child{margin-bottom:0;}
+.itens li::before{content:"";position:absolute;left:0;top:.64em;width:9px;height:1px;background:var(--tiffany);}
+.card.inv .itens li::before{background:var(--cyan);}
+.subt{font-family:'Jost',sans-serif;font-size:clamp(11px,2.8vw,12px);letter-spacing:.2em;text-transform:uppercase;
+      font-weight:700;color:var(--tiffany);margin-top:18px;}
+.card.inv .subt{color:var(--cyan);}
+.pausa{font-family:'Jost',sans-serif;font-size:clamp(11px,2.8vw,12px);letter-spacing:.2em;text-transform:uppercase;
+       font-weight:700;color:var(--cinza);margin-top:18px;padding-top:14px;border-top:1px dashed rgba(25,60,58,.28);}
+.card.inv .pausa{color:var(--mist);opacity:.75;border-top-color:rgba(225,244,242,.3);}
+
+/* ---------- indicado para ---------- */
+.indicado{margin-top:clamp(20px,4vw,28px);padding:clamp(22px,5vw,30px);background:var(--mist);
+          border-left:3px solid var(--tiffany);}
+.indicado .tt{font-family:'Jost',sans-serif;font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;
+              font-weight:700;color:var(--cinza);margin-bottom:10px;}
+.indicado p{font-size:clamp(16px,4.1vw,17.5px);}
+
+/* ---------- equipe ---------- */
+.equipe{display:flex;flex-direction:column;gap:clamp(20px,3.6vw,26px);margin-top:clamp(28px,5.4vw,44px);}
+@media(min-width:900px){.equipe{display:grid;grid-template-columns:repeat(3,1fr);align-items:stretch;}}
+.pessoa{background:#fff;color:var(--ink);display:flex;flex-direction:column;border-top:3px solid var(--tiffany);}
+.pessoa.destaque-p{border-top-color:var(--cyan);background:var(--dark);color:var(--mist);}
+.pessoa img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 22%;}
+.pessoa .txt{padding:clamp(22px,4.6vw,30px);display:flex;flex-direction:column;flex:1;}
+.pessoa .nome{font-family:'Fraunces',Georgia,serif;font-size:clamp(23px,5.4vw,28px);color:var(--dark);line-height:1.12;}
+.pessoa.destaque-p .nome{color:#fff;}
+.pessoa .papel{font-family:'Jost',sans-serif;font-size:clamp(11px,2.8vw,12px);letter-spacing:.14em;
+               text-transform:uppercase;font-weight:700;color:var(--tiffany);margin-top:9px;line-height:1.6;}
+.pessoa.destaque-p .papel{color:var(--cyan);}
+.pessoa .bio{font-size:clamp(15.5px,4vw,17px);line-height:1.6;margin-top:14px;}
+.pessoa .mini{list-style:none;margin-top:14px;padding-top:14px;border-top:1px solid rgba(25,60,58,.16);}
+.pessoa.destaque-p .mini{border-top-color:rgba(225,244,242,.28);}
+.pessoa .mini li{position:relative;padding-left:20px;margin-bottom:9px;font-size:clamp(14.5px,3.8vw,15.5px);line-height:1.45;}
+.pessoa .mini li:last-child{margin-bottom:0;}
+.pessoa .mini li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:1px;background:var(--tiffany);}
+.pessoa.destaque-p .mini li::before{background:var(--cyan);}
+/* ---------- investimento ---------- */
+.inv{display:flex;flex-direction:column;gap:clamp(18px,3.4vw,24px);margin-top:clamp(28px,5.4vw,44px);}
+@media(min-width:860px){.inv{display:grid;grid-template-columns:1fr 1fr 1.15fr;align-items:stretch;}}
+.vbox{background:var(--mist);padding:clamp(24px,5vw,32px);display:flex;flex-direction:column;justify-content:center;
+      border-top:3px solid var(--tiffany);}
+.vbox.total{background:var(--dark);color:var(--mist);border-top-color:var(--cyan);}
+.vbox .rot{font-family:'Jost',sans-serif;font-size:clamp(10.5px,2.7vw,11.5px);letter-spacing:.18em;
+           text-transform:uppercase;font-weight:700;color:var(--cinza);}
+.vbox.total .rot{color:var(--cyan);}
+.vbox .v{font-family:'Fraunces',Georgia,serif;font-size:clamp(30px,7.6vw,40px);color:var(--dark);line-height:1.08;margin-top:8px;}
+.vbox.total .v{font-size:clamp(34px,8.6vw,48px);color:#fff;}
+.vbox .ob{font-size:clamp(14.5px,3.8vw,15.5px);line-height:1.5;opacity:.78;margin-top:9px;}
+
+/* ---------- contato ---------- */
+.contato{position:relative;overflow:hidden;background:var(--deep);color:#fff;}
+.contato .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.22;filter:saturate(.6);}
+.contato .veu{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,41,39,.9),rgba(15,41,39,.96));}
+.contato .wrap{position:relative;z-index:2;}
+.contato h2{color:var(--mist);}
+.contato h2 em{color:var(--cyan);}
+.canais{margin-top:clamp(30px,6vw,46px);display:flex;flex-direction:column;}
+.canais a{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding:clamp(15px,3.6vw,19px) 0;
+          border-top:1px solid rgba(225,244,242,.22);font-size:clamp(16px,4.2vw,19px);transition:padding-left .3s ease,color .3s ease;}
+.canais a:last-child{border-bottom:1px solid rgba(225,244,242,.22);}
+.canais a:hover{padding-left:12px;color:var(--cyan);}
+.canais b{font-family:'Jost',sans-serif;font-weight:600;font-size:clamp(11px,2.8vw,12.5px);
+          letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);min-width:118px;}
+.fim{margin-top:clamp(34px,7vw,54px);padding-top:22px;border-top:1px solid rgba(225,244,242,.25);
+     font-family:'Jost',sans-serif;font-size:clamp(10.5px,2.6vw,12px);letter-spacing:.22em;
+     text-transform:uppercase;color:var(--mist);opacity:.8;}
+
+/* ---------- entrada em cena ---------- */
+.rev{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.3,1),transform .8s cubic-bezier(.2,.7,.3,1);}
+.rev.vis{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){
+  .rev{opacity:1;transform:none;transition:none;}
+  .hero .bg{animation:none;} .rolar i{animation:none;}
+  html{scroll-behavior:auto;}
+}
+</style>
+</head>
+<body>
+
+<div class="prog" id="prog"></div>
+
+<header class="topo" id="topo">
+  <div class="wrap">
+    <img src="assets/logo_vozdoser-bco.png" alt="Voz do Ser">
+    <div class="ident">Programa individual · Milena Cosmo<span>Voz e Comunicação Efetiva · 06.11.2026</span></div>
+  </div>
+</header>
+
+<!-- ======================= HERO ======================= -->
+<div class="hero">
+  <img class="bg" src="assets/palestrantes-no-convida-lu-falando.jpg" alt="">
+  <div class="veu"></div>
+  <div class="wrap assinatura">
+    <img src="assets/logo_vozdoser-bco.png" alt="Voz do Ser">
+  </div>
+  <div class="wrap">
+    <div class="marca">Voz do Ser</div>
+    <h1>Programa Voz e <em>Comunicação Efetiva</em></h1>
+    <p class="sub lead">Expressividade de impacto consciente e estado de presença.</p>
+    <div class="para">Programa individual para Milena Cosmo · Neoenergia</div>
+    <div class="meta">
+      <span>8&nbsp;horas de treinamento</span>
+      <span>Dois formatos</span>
+    </div>
+    <a class="rolar" href="#contexto"><i></i>Role para ver</a>
+  </div>
+</div>
+
+<!-- ======================= CONTEXTO ======================= -->
+<section id="contexto">
+  <div class="wrap">
+    <div class="olho rev">Contexto</div>
+    <h2 class="rev">O medo de falar em público <em>raramente é só técnico</em></h2>
+  </div>
+  <div class="wrap" style="margin-top:clamp(6px,2vw,18px);">
+    <div style="max-width:800px;">
+      <p class="apoio rev">Milena precisa assumir uma demanda que exige falar ao microfone, uma situação que hoje gera muito desconforto. Esse medo costuma vir de padrões emocionais e mentais que aparecem no corpo, na respiração e na voz justamente na hora da exposição.</p>
+      <p class="apoio rev destaque">Por isso, o programa começa entendendo a origem desse bloqueio, pela <b>Terapia da Comunicação</b>, e depois desenvolve, na prática, os recursos vocais, corporais e expressivos para que a Milena fale com segurança, presença e naturalidade, em qualquer tipo de microfone.</p>
+    </div>
+    <div class="circulos rev">
+      <figure class="c1"><img src="assets/circ-luana-e-gabriel.jpg" alt="Luana Curti e Gabriel Hatt em treinamento"></figure>
+      <figure class="c2"><img src="assets/circ-vinicius.jpg" alt="Vinícius Dônola falando em público"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= O QUE SERÁ TRABALHADO ======================= -->
+<section style="background:#fff;">
+  <div class="wrap">
+    <div class="olho rev">O programa</div>
+    <h2 class="rev">O que será <em>trabalhado</em></h2>
+    <div class="temas">
+      <div class="tema rev"><div class="n serif">01</div><div class="t">Terapia da Comunicação: os aspectos emocionais e mentais e os padrões que influenciam a forma de se comunicar e de lidar com a exposição</div></div>
+      <div class="tema rev"><div class="n serif">02</div><div class="t">Avaliação da voz, da comunicação e da expressividade</div></div>
+      <div class="tema rev"><div class="n serif">03</div><div class="t">Linguagem verbal e não verbal</div></div>
+      <div class="tema rev"><div class="n serif">04</div><div class="t">Exercícios fonoaudiológicos</div></div>
+      <div class="tema rev"><div class="n serif">05</div><div class="t">Exercícios de expressividade vocal e corporal</div></div>
+      <div class="tema rev"><div class="n serif">06</div><div class="t">Tríade da Experiência Comunicativa: o que é visto, o que é ouvido e o que é sentido</div></div>
+      <div class="tema rev"><div class="n serif">07</div><div class="t">Técnicas para diferentes microfones: de mão, de lapela, headset, de bancada e videoconferência</div></div>
+      <div class="tema rev"><div class="n serif">08</div><div class="t">Escutar a própria voz, conhecer a própria voz e transformar a própria voz</div></div>
+      <div class="tema rev"><div class="n serif">09</div><div class="t">A arte de se sentir vista, e não exposta</div></div>
+      <div class="tema rev"><div class="n serif">10</div><div class="t">Simulações de situações reais, com gravação e feedback estruturado</div></div>
+      <div class="tema rev"><div class="n serif">11</div><div class="t">Assessoria e preparação de Vinícius Dônola</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= OS DOIS FORMATOS ======================= -->
+<section class="esc">
+  <div class="wrap">
+    <div class="olho rev">A escolha</div>
+    <h2 class="rev">Um programa em <em>dois formatos</em></h2>
+    <p class="lead rev larg" style="color:var(--mist);">Os dois caminham para o mesmo lugar e têm a mesma carga horária: 8&nbsp;horas de treinamento. O que muda é o ritmo.</p>
+    <div class="cards duo">
+      <div class="card inv rev" style="background:var(--deep);">
+        <div class="num">Formato 1</div>
+        <h3>Jornada Progressiva</h3>
+        <ul class="itens sep">
+          <li>1 Sessão de Terapia da Comunicação online, de 2&nbsp;horas</li>
+          <li>2 sessões práticas online, de 2&nbsp;horas cada</li>
+          <li>1 sessão presencial, de 2&nbsp;horas</li>
+        </ul>
+        <div class="subt">8&nbsp;horas de treinamento</div>
+      </div>
+      <div class="card inv rev" style="background:var(--deep);">
+        <div class="num">Formato 2</div>
+        <h3>Imersão Presencial</h3>
+        <ul class="itens sep">
+          <li>1 Sessão de Terapia da Comunicação online, de 2&nbsp;horas</li>
+          <li>1 imersão presencial, de 6&nbsp;horas</li>
+        </ul>
+        <div class="subt">8&nbsp;horas de treinamento</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FORMATO 1 ======================= -->
+<section>
+  <div class="wrap">
+    <div class="olho rev">Formato 1</div>
+    <h2 class="rev">Jornada <em>Progressiva</em></h2>
+    <div class="cards trio">
+      <div class="card rev" style="background:var(--mist);">
+        <div class="num">Encontro 1</div>
+        <h3>Terapia da Comunicação e Avaliação Vocal e Expressiva</h3>
+        <div class="ficha">2&nbsp;horas · online</div>
+        <div class="conduz"><img src="assets/av-dupla-gabriel-luana.jpg" alt="Gabriel Hatt e Luana Curti"><div><span class="q">Quem conduz</span><span class="n">Gabriel Hatt e Luana Curti</span></div></div>
+        <p style="margin-top:16px;">Sessão conduzida por dois Terapeutas da Comunicação do Voz do Ser para compreender o que está por trás do medo de falar ao microfone. São investigados os aspectos emocionais, os padrões mentais e a forma como a Milena se relaciona com a exposição. Também é feita uma avaliação da voz, da comunicação e da expressividade, identificando os recursos que ela já tem e os pontos a desenvolver.</p>
+        <p style="margin-top:12px;">O resultado é um plano de trabalho personalizado, que orienta as sessões práticas seguintes.</p>
+      </div>
+      <div class="card inv rev">
+        <div class="num">Encontros 2 e 3</div>
+        <h3>Práticas de Voz, Comunicação e Expressividade</h3>
+        <div class="ficha">2 encontros de 2&nbsp;horas · online</div>
+        <div class="conduz"><img src="assets/av-dupla-luana-vinicius.jpg" alt="Luana Curti e Vinícius Dônola"><div><span class="q">Quem conduz</span><span class="n">Luana Curti e Vinícius Dônola</span></div></div>
+        <p style="margin-top:16px;">Encontros práticos e progressivos, em que a Milena desenvolve, passo a passo, consciência, controle e segurança na própria voz e na expressividade.</p>
+        <ul class="itens sep">
+          <li>Exercícios fonoaudiológicos de respiração, projeção, articulação, ritmo e entonação</li>
+          <li>Exercícios de expressividade vocal e corporal</li>
+          <li>Linguagem verbal e não verbal</li>
+          <li>Tríade da Experiência Comunicativa</li>
+          <li>Escutar, conhecer e transformar a própria voz</li>
+          <li>Técnicas para diferentes microfones</li>
+          <li>A arte de se sentir vista, e não exposta</li>
+        </ul>
+      </div>
+      <div class="card rev" style="background:var(--mist);">
+        <div class="num">Encontro 4</div>
+        <h3>Prática Presencial, Simulações e Feedback</h3>
+        <div class="ficha">2&nbsp;horas · presencial no Voz do Ser,<br>em São Paulo ou no Rio de Janeiro</div>
+        <div class="conduz"><img src="assets/av-dupla-luana-vinicius.jpg" alt="Luana Curti e Vinícius Dônola"><div><span class="q">Quem conduz</span><span class="n">Luana Curti e Vinícius Dônola</span></div></div>
+        <p style="margin-top:16px;">Sessão para colocar em prática tudo o que foi desenvolvido, em situações reais de uso do microfone.</p>
+        <ul class="itens sep">
+          <li>Simulações das situações que a Milena vai enfrentar</li>
+          <li>Prática com diferentes tipos de microfone</li>
+          <li>Gravações e análise do desempenho</li>
+          <li>Feedback estruturado e ajustes finais</li>
+          <li>Orientações para manter a evolução depois do programa</li>
+        </ul>
+      </div>
+    </div>
+    <div class="indicado rev">
+      <div class="tt">Indicado para</div>
+      <p>Quem tem tempo até a entrega e quer um processo gradual, com prática entre os encontros para consolidar os novos hábitos de voz e expressão.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FORMATO 2 ======================= -->
+<section style="background:#fff;">
+  <div class="wrap">
+    <div class="olho rev">Formato 2</div>
+    <h2 class="rev">Imersão <em>Presencial</em></h2>
+    <p class="lead rev larg">O mesmo conteúdo das sessões práticas do Formato 1, concentrado em um único dia de imersão.</p>
+    <div class="cards duo">
+      <div class="card rev" style="background:var(--mist);">
+        <div class="num">Encontro 1</div>
+        <h3>Terapia da Comunicação e Avaliação Vocal e Expressiva</h3>
+        <div class="ficha">2&nbsp;horas · online</div>
+        <div class="conduz"><img src="assets/av-dupla-gabriel-luana.jpg" alt="Gabriel Hatt e Luana Curti"><div><span class="q">Quem conduz</span><span class="n">Gabriel Hatt e Luana Curti</span></div></div>
+        <p style="margin-top:16px;">A mesma sessão inicial do Formato 1: compreender o que está por trás do medo de falar ao microfone e avaliar a voz, a comunicação e a expressividade, resultando no plano de trabalho personalizado.</p>
+      </div>
+      <div class="card inv rev">
+        <div class="num">Encontro 2</div>
+        <h3>Imersão Presencial: Voz, Expressividade e Prática ao Microfone</h3>
+        <div class="ficha">6&nbsp;horas, com intervalo · presencial no Voz do Ser,<br>em São Paulo ou no Rio de Janeiro</div>
+        <div class="conduz"><img src="assets/av-dupla-luana-vinicius.jpg" alt="Luana Curti e Vinícius Dônola"><div><span class="q">Quem conduz</span><span class="n">Luana Curti e Vinícius Dônola</span></div></div>
+        <div class="subt">Primeira parte · 3&nbsp;horas</div>
+        <ul class="itens">
+          <li>Exercícios fonoaudiológicos e de expressividade</li>
+          <li>Linguagem verbal e não verbal</li>
+          <li>Tríade da Experiência Comunicativa</li>
+          <li>Escutar, conhecer e transformar a própria voz</li>
+          <li>Técnicas para diferentes microfones</li>
+        </ul>
+        <div class="pausa">Pausa para lanche</div>
+        <div class="subt">Segunda parte · 3&nbsp;horas</div>
+        <ul class="itens">
+          <li>A arte de se sentir vista, e não exposta</li>
+          <li>Simulações de situações reais</li>
+          <li>Gravações e análise do desempenho</li>
+          <li>Feedback estruturado</li>
+          <li>Orientações para os próximos passos</li>
+        </ul>
+      </div>
+    </div>
+    <div class="indicado rev">
+      <div class="tt">Indicado para</div>
+      <p>Quem precisa de resultado em menos tempo, ou prefere uma experiência intensa, em que a prática presencial é o centro do processo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= EQUIPE ======================= -->
+<section class="esc">
+  <div class="wrap">
+    <div class="olho rev">Equipe</div>
+    <h2 class="rev">Quem conduz <em>o programa</em></h2>
+    <div class="equipe">
+
+      <div class="pessoa destaque-p rev">
+        <img src="assets/vinicius-donola-foto.jpeg" alt="Vinícius Dônola">
+        <div class="txt">
+          <div class="nome">Vinícius Dônola</div>
+          <div class="papel">Especialista em Comunicação Corporativa · Consultor em Estratégia de Comunicação</div>
+          <ul class="mini">
+            <li>Âncora da BandNews FM por 4&nbsp;anos</li>
+            <li>Repórter especial da Rede Globo por 15&nbsp;anos</li>
+            <li>Correspondente em Nova York pela RecordTV entre 2010 e 2012</li>
+            <li>Diretor e roteirista premiado na Europa, América e Ásia com o documentário "Fênix: o voo de Davi" (2021, GloboPlay e Globo News)</li>
+            <li>Vencedor dos prêmios Vladimir Herzog e Tim Lopes de Jornalismo</li>
+            <li>Escritor de sete livros, entre eles "Histórias das Histórias que Contei" (2019, Editora Intrínseca)</li>
+            <li>Cursando mestrado em Administração no IBMEC RJ</li>
+            <li>Conselheiro formado pelo IBGC, Instituto Brasileiro de Governança Corporativa</li>
+            <li>Jornalista graduado na Escola Superior de Jornalismo do Porto, em Portugal, com diploma apostilado pela Universidade do Estado do Rio de Janeiro</li>
+          </ul>
+          <div class="bio" style="font-weight:600;color:#fff;">No programa, conduz as práticas de comunicação ao microfone, as simulações e os feedbacks, junto com a Luana.</div>
+        </div>
+      </div>
+
+      <div class="pessoa rev">
+        <img src="assets/luana-curti-foto.jpeg" alt="Luana Curti">
+        <div class="txt">
+          <div class="nome">Luana Curti</div>
+          <div class="papel">CPO e cofundadora do Voz do Ser</div>
+          <div class="bio">Fonoaudióloga pela Universidade Federal de São Paulo, com especialização em Voz pelo Centro de Estudos da Voz e mestrado em Artes Cênicas pela UNESP. Formada em Gestão Estratégica de Saúde Mental e Bem-Estar no Trabalho pelo Mind Institute.</div>
+          <div class="bio">Terapeuta da Comunicação e fonoaudióloga especialista em voz. Cofundadora do Instituto de Comunicação com Propósito, Autoconhecimento na Prática e Mudança de Mentalidade, que atua na formação de terapeutas, em atendimentos clínicos individuais e em programas corporativos de liderança e relacionamento de equipe.</div>
+          <div class="bio" style="font-weight:600;color:var(--dark);">No programa, conduz a sessão inicial, compartilha a estratégia do desenvolvimento com o Vinícius e acompanha todos os encontros.</div>
+        </div>
+      </div>
+
+      <div class="pessoa rev">
+        <img src="assets/gabriel-recorte.png" alt="Gabriel Hatt">
+        <div class="txt">
+          <div class="nome">Gabriel Hatt</div>
+          <div class="papel">CEO e cofundador do Voz do Ser</div>
+          <div class="bio">Ator, cantor e diretor, conduziu dezenas de produções teatrais e preparou comunicadores e performers antes de se aprofundar no estudo da mente humana, do autoconhecimento e da espiritualidade.</div>
+          <div class="bio">Foi nesse cruzamento que descobriu que comunicação, mudança de mentalidade, relacionamentos e realização são, no fim, uma coisa só, e dessa vontade de tornar o autoconhecimento prático nasceu o Voz do Ser. É especialista em autoconhecimento na prática, saúde mental, inteligência emocional e relacional, comunicação e performance, liderança com propósito e desenvolvimento de times.</div>
+          <div class="bio" style="font-weight:600;color:var(--dark);">No programa, conduz a sessão inicial de Terapia da Comunicação, junto com a Luana.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======================= INVESTIMENTO ======================= -->
+<section>
+  <div class="wrap">
+    <div class="olho rev">Investimento</div>
+    <h2 class="rev">Um valor para <em>os dois formatos</em></h2>
+    <p class="rev larg">O investimento é o mesmo na Jornada Progressiva e na Imersão Presencial. A escolha entre eles é de ritmo, não de preço.</p>
+    <div class="inv">
+      <div class="vbox rev">
+        <div class="rot">Programa</div>
+        <div class="v">R$ 13.800,00</div>
+        <div class="ob">Jornada Progressiva ou Imersão Presencial</div>
+      </div>
+      <div class="vbox rev">
+        <div class="rot">Deslocamento</div>
+        <div class="v">R$ 3.000,00</div>
+        <div class="ob">Passagem e hospedagem da Luana no Rio de Janeiro ou do Vinícius em São Paulo</div>
+      </div>
+      <div class="vbox total rev">
+        <div class="rot">Investimento total</div>
+        <div class="v">R$ 16.800,00</div>
+        <div class="ob">8&nbsp;horas de treinamento, com os dois Terapeutas da Comunicação fundadores do Voz do Ser e o Vinícius Dônola</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CONTATO ======================= -->
+<section id="contato" class="contato">
+  <img class="bg" src="assets/corporativo-convida-aproximado-lu-e-gabs-sorrindo.jpg" alt="">
+  <div class="veu"></div>
+  <div class="wrap">
+    <div class="olho rev">Próximo passo</div>
+    <h2 class="rev">Falar ao microfone <em>com presença e naturalidade</em></h2>
+    <p class="lead rev" style="color:var(--mist);max-width:56ch;">Estamos à disposição para escolher o formato e marcar o encontro inicial.</p>
+    <div class="canais rev">
+      <a href="https://wa.me/5511987792244"><b>WhatsApp</b><span>(11) 98779-2244 · Silvia Maciel</span></a>
+      <a href="mailto:falecom@vozdoser.com.br"><b>E-mail</b><span>falecom@vozdoser.com.br</span></a>
+      <a href="https://vozdoser.com.br/"><b>Site</b><span>vozdoser.com.br</span></a>
+      <a href="https://www.instagram.com/vozdoser/"><b>Instagram</b><span>@vozdoser</span></a>
+      <a href="https://www.linkedin.com/school/voz-do-ser/"><b>LinkedIn</b><span>Voz do Ser</span></a>
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=Av.%20Afr%C3%A2nio%20Peixoto%2C%20250%20-%20Butant%C3%A3%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2005507-000"><b>Endereço</b><span>Av. Afrânio Peixoto, 250 · Butantã · São Paulo · SP</span></a>
+    </div>
+    <div class="fim">Instituto Voz do Ser · A voz de quem realmente somos</div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var reduz = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var prog = document.getElementById('prog'), topo = document.getElementById('topo');
+  function naRolagem(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    prog.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    topo.classList.toggle('on', window.scrollY > window.innerHeight * 0.75);
+  }
+  window.addEventListener('scroll', naRolagem, {passive:true});
+  naRolagem();
+
+  var alvos = document.querySelectorAll('.rev');
+  if (reduz || !('IntersectionObserver' in window)) {
+    alvos.forEach(function(el){ el.classList.add('vis'); });
+  } else {
+    var obs = new IntersectionObserver(function(ent){
+      ent.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add('vis'); obs.unobserve(e.target); }
+      });
+    }, {rootMargin:'0px 0px -12% 0px', threshold:0.08});
+    alvos.forEach(function(el, i){ el.style.transitionDelay = ((i % 4) * 70) + 'ms'; obs.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>
